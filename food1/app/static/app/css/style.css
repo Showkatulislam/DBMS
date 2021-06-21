@@ -1,0 +1,40 @@
+.owl-carousel .item{
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;;
+   }
+   
+   .owl-next{
+    float:right;
+   }
+   .owl-prev{
+    float:left;
+   }
+   .owl-prev span{
+    font-size: 24px;
+    font-weight: bold;
+   }
+   .owl-next span{
+    font-size: 24px;
+    font-weight: bold;
+   }
+   .nav_bg{
+       background-color: purple;
+   }
+   .navbar-brand{
+       font-weight: bold;
+       text-transform: uppercase;
+   
+   }
+   .headH:hover,.headH:active{
+       border-bottom: 1px solid orange;
+   }
+   footer{
+       background: grey;
+   }
+   .live_bg{
+       background:red;
+   }
+   hr{
+       box-shadow: 2px 4px 4px green;
+   }

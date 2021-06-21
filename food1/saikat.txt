@@ -1,0 +1,11 @@
+html
+css
+bootstrap
+js
+python->django
+lobtop---python
+pip install django
+exit()
+pip intall pillow
+cd food1
+py manage.py runserver

@@ -1,0 +1,79 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Placed order{% endblock title %}
+{% block s %}
+<style>
+    body{
+        background:rgba(187, 108, 108,0.5);
+        color: white;
+        font-weight: bolder;
+    }
+    .bg-content{
+        background:rgba(0,0,0,0.4);
+    }
+</style>
+{% endblock s %}
+{% block main-content %}
+<div class="container my-5 justify-content-center bg">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-sm-8 offser-sm-1 bg-content">
+            <h1 class="text-center bg-primary">YOUR ORDER STATUS</h1>
+            {% for fd in order_placed %}
+            <div class="row shadow-sm mb-3">
+                <div class="col-sm-2">
+                 <img src="{{fd.prodect.product_image.url}}" alt="" 
+                 class="img-fluid" height="150" width="150">
+                </div>
+                <div class="col-sm-7">
+                    <p>Food Title: {{fd.prodect.title}}</p>
+                    <p>Quantity: {{fd.quantity}}</p>
+                    <p>Price: {{fd.total_cost}}</p>
+                </div>
+                <div class="col-sm-3 fw-bold border-3">
+                 <p>Order Status : {{fd.status}}</p>
+                 {% if fd.status == 'Pendeing' %}
+                 <div class="progress">
+                     <div class="progress-bar bg-dark" style="width: 20%;"
+                     aria-valuenow="20" aria-valuemax="100">
+                     </div>
+                 </div>
+                 {% endif %}
+                 {% if fd.status == 'Packed' %}
+                 <div class="progress">
+                     <div class="progress-bar bg-info" style="width: 40%;"
+                     aria-valuenow="20" aria-valuemax="100">
+                     </div>
+                 </div>
+                 {% endif %}
+                 {% if fd.status == 'On The Way' %}
+                 <div class="progress">
+                     <div class="progress-bar bg-warning" style="width: 70%;"
+                     aria-valuenow="20" aria-valuemax="100">
+                     </div>
+                 </div>
+                 {% endif %}
+                 {% if fd.status == 'Delivered' %}
+                 <div class="progress">
+                     <div class="progress-bar bg-success" style="width: 100%;"
+                     aria-valuenow="20" aria-valuemax="100">
+                     </div>
+                 </div>
+                 {% endif %}
+                 {% if fd.status == 'Cancel' %}
+                 <div class="progress">
+                     <div class="progress-bar bg-danger" style="width: 100%;"
+                     aria-valuenow="20" aria-valuemax="100">
+                     </div>
+                 </div>
+                 {% endif %}
+                </div>
+ 
+            </div>
+            {% endfor %}
+            <hr>
+        </div>
+ 
+    </div> 
+ </div>
+{% endblock main-content %}

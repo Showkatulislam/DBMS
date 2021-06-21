@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block s %}
+<style>
+    body{
+        background:rgba(0,0,0,0.1);
+    }
+
+</style>
+{% endblock s %}
+{% block main-content %}
+<div class="m-3">
+  <h2 class="doit">use Text</h2>
+  <!-- Slider 1 -->
+  <div class="owl-carousel" id="slider1">
+    {% for mb in food %}
+    <a href="{% url 'product-detail' mb.id %}" class="btn"><div class="item">
+     <img src="{{mb.product_image.url}}" alt="" height="200px">
+     <span class="fw-bold">{{mb.title}} </span><br>
+     <span class="fs-5">Tk.{{mb.discounted_price}} </span></div>
+   </a>
+    {% endfor %}
+  </div>
+ </div>
+ {% endblock main-content %}

@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block s %}
+<style>
+  body{
+      background:rgba(187, 108, 108,0.5);
+  }
+  form{
+      background: rgba(33,55,66,0.2);
+      justify-content: center;
+      margin: 0;
+  }
+</style>
+{% endblock s %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6  offset-sm-3">
+   <form action="" method="post" novalidate class="shadow p-5">
+    <h3 class="text-center bg-info p-3">Login</h3>
+    {% csrf_token %}   
+    {% for fm in form %} 
+    <div class="form-group">
+        {{fm.label_tag}} {{fm}} <small class="text-danger">
+        {{fm.errors|striptags}} 
+        </small><br>
+    </div>
+    {% endfor %} 
+    <div class="text-center fw-bold">
+        <small> <a href="{% url 'passwordchange' %}">Forget Password</a></small><br>
+        <input type="submit" class="btn btn-primary mt-4" value="login"><br>
+    </div>
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
